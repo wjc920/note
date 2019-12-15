@@ -1,29 +1,3 @@
-
-
-
-
-
-
-
-
-1.删除分支
-
-git branch -D branch-name
-
-分支合并流程：
-
-1.合并分支之前先将当前分支的history清理好，同一个功能的多次提交合并成一次
-
-​    使用reset将head重置，然后重新提交
-
-2.将主分支合并到当前分支
-
-3.发MR
-
-
-
-
-
 # git使用前配置
 
 ### 查看
@@ -39,7 +13,7 @@ git config user.email
 
 ```shell
 #配置全局用户名WJC
-git config --global user.name "WJC"
+git config --global user.name "jichao.wang"
 #配置全局用户邮箱wjc920@126.com
 git config --global user.email "wjc920@foxmail.com"
 #执行下面语句生成密钥，并添加密钥到server
@@ -105,6 +79,8 @@ git stash list #查看当前分支上的stash缓存
 git stash pop #导出当前分支上的stash缓存
 git remote add origin https://github.com/JustLikeY/git.git
 git push -u origin master     # 推送本地 master 去 origin
+
+git branch -D branch-name #删除分支
 ```
 
 # 对比（unstaged、staged、commit）
@@ -120,6 +96,14 @@ git diff #工作区和暂存内容对比
 git commit -m "提交说明"  #提交
 git commit -am "提交说明" #跳过暂存区提交
 ```
+
+>**提交前**分支合并流程：
+>
+>1.合并分支之前先将当前分支的history清理好，同一个功能的多次提交合并成一次,使用reset将head重置，然后重新提交
+>
+>2.将主分支合并到当前分支
+>
+>3.发MR
 
 # 查看日志
 
