@@ -1,0 +1,17 @@
+正常流程：
+
+1. 初始化KafkaSink时初始化事务，每个task初始化5个transactionId，每个transationId对应一个producer并将对应关系放入到Map中，再将这些transactionId放入到空闲队列中，然后取出第一个transactionId并开启第一个事务
+2. produce.send() 0次到多次
+3. 收到CheckpointBarrier，将当前正在使用的transactionId放入到pendingList中，同时从空闲队列中取出一个transactionId赋值给nextTransactionId并留给下一次事务使用，然后doCheckpoint，主要将pendingList、nextTransactionId添加到快照中，然后回复CheckpointDriver当前子task快照已完成
+4. 收到CheckpointDriver的回调，整个Job的快照已经完成，开始提交事务
+
+
+
+事务恢复：
+
+1.将pendingList中的保存的PID、epoch，所对应的事务继续提交，如果已经提交会抛出一个重复提交的异常
+
+2.将nextTransactionId的事务init一下，abort
+
+3.其他步骤和正常流程第一步相同
+
