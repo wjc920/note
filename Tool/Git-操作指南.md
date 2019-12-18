@@ -16,6 +16,8 @@ git config user.email
 git config --global user.name "jichao.wang"
 #配置全局用户邮箱wjc920@126.com
 git config --global user.email "wjc920@foxmail.com"
+#设置中文编码
+git config --global core.quotepath false
 #执行下面语句生成密钥，并添加密钥到server
 ssh-keygen -t rsa -C "wjc920@foxmail.com" 
 #复制id_rsa.pub到git server

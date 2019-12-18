@@ -52,6 +52,13 @@ sudo vim /etc/fstab
 ```shell
 gsettings set org.gnome.desktop.peripherals.touchpad click-method areas
 ```
+#  桌面壁纸
 
+修改`/etc/alternatives/gdm3.css`
 
+```json
+#lockDialogGroup {
+  background: #2c001e url(file:///mnt/d/wjc/desktop-pic/login.jpg);
+  background-repeat: repeat; }
+```
 
