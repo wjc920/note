@@ -1,8 +1,8 @@
-# 必装软件
+# Ubuntu必装软件
 
 GNOME Tweaks
 
-# 系统显卡设置
+# Ubuntu系统显卡设置
 
 等系统进入grub后，按esc，选高级，进recover，先network再resume，设置显卡驱动,具体设置位置在 软件和更新->附加驱动,选择NVIDIA版本。字体
 
@@ -60,5 +60,19 @@ gsettings set org.gnome.desktop.peripherals.touchpad click-method areas
 #lockDialogGroup {
   background: #2c001e url(file:///mnt/d/wjc/desktop-pic/login.jpg);
   background-repeat: repeat; }
+```
+
+# Deepin
+
+## 关机卡死
+
+这种问题是显卡驱动导致的，具体修改方法如下：
+
+```
+sudo vim /etc/default/grub
+# 在splash quiet之后添加acpi=off
+sudo apt-get install -y nvidia-driver
+# 使用显卡驱动管理器切换显卡驱动为闭源显卡
+# 在确认重启没有问题之后，将grub修改的内容还原
 ```
 

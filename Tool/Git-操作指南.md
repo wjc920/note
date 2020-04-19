@@ -13,7 +13,7 @@ git config user.email
 
 ```shell
 #配置全局用户名WJC
-git config --global user.name "jichao.wang"
+git config --global user.name "wjc"
 #配置全局用户邮箱wjc920@126.com
 git config --global user.email "wjc920@foxmail.com"
 #设置中文编码
@@ -120,6 +120,27 @@ git log --oneline #只显示提交产生日志
 ```shell
 git config --global core.quotepath false
 ```
+
+# git常见问题
+
+## 中文乱码
+
+### git status文件目录乱码
+
+```
+wjc@wjc-PC:~/Desktop/note$ git status
+位于分支 master
+您的分支与上游分支 'origin/master' 一致。
+要提交的变更：
+  （使用 "git reset HEAD <文件>..." 以取消暂存）
+
+        修改：     InstallSystem/sys-config.md
+        新文件：   "Tool/Maven-\345\237\272\346\234\254\346\246\202\345\277\265.md"
+```
+
+1. 问题原因：core.quotepath的作用是控制路径是否编码显示的选项。当路径中的字符大于0x80的时候，如果设置为true，转义显示；设置为false，不转义。
+2. 解决方法：执行 `git config --global core.quotepath false`
+
 
 
 
