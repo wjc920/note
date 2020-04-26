@@ -41,10 +41,35 @@ docker image prune
 - 根据ID删除镜像，直接会删除ID相同的所有tag和镜像文件
 - 删除镜像必须先删除镜像对应容器（建议，可以加-f来强行删除）
 
+### 创建镜像
+- 基于已有容器创建
+```shell
+# 启动交互式容器
+docker run -it 718aa89713c8 bash
+# 修改镜像
+ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
+# 创建镜像 a：作者；m：提交说明
+docker commit -m "tz update" -a "wjc" 26969b394f5c centos:0426
+```
+- 直接导入
+```shell
+# 保存镜像到本地
+docker save -o centos.tar centos:0426
+# 导入镜像
+docker load -i centos.tar
+# 保存容器到本地
+docker export -o container.tar containerId 
+# 导入镜像
+docker import centos.tar centos:import
+```
+后面两种导入导出一般针对容器。前两种针对镜像，前两种方法能保存镜像的创建和更新历史信息。
+- [Dockerfile创建](Dockerfile指南.md)
 
+# 容器
+
+### 日志
 ```shell
 # 查看容器日志
 docker logs --since 2020-04-16T11:28:00 --until 2020-04-16T11:28:59 45c5c192a01c > /tmp/tmp
-
 ```
 ![]()
