@@ -9,6 +9,12 @@
     sudo dpkg -i xxxx.deb
     sudo service docker start
     ```
+3. 配置网易镜像库
+    ```
+{
+  "registry-mirrors": ["http://hub-mirror.c.163.com"]
+}
+    ```
 
 # Docker Compose安装
 ```
