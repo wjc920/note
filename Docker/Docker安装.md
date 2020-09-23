@@ -11,9 +11,10 @@
     ```
 3. 配置网易镜像库
     ```
-{
-  "registry-mirrors": ["http://hub-mirror.c.163.com"]
-}
+    # vi /etc/docker/daemon.json
+    {
+        "registry-mirrors": ["http://hub-mirror.c.163.com"]
+    }
     ```
 
 # Docker Compose安装
