@@ -29,13 +29,13 @@ ssh-keygen -t rsa -C "wjc920@foxmail.com"
 git init #初始化本地仓库
 在远程库上新建仓库
 git remote add origin https://git.oschina.net/xxx/.git(或则 git:git的地址) #关联本地仓库到远程仓库
-
 git add * #添加要提交的文件到暂存区
 git commit -m "init commint" #提交代码到文件控制仓库
-git fetch origin #将远程主机的更新，全部取回本地 
-git pull origin master --allow-unrelated-histories #拉
-git push -u origin master #取远程分支代码到本地
+git push -u origin master #将本地代码推送到远程分支
 ```
+
+
+
 
 # 远程库连接
 
@@ -45,6 +45,8 @@ git push -u origin master     # 推送本地 master 去 origin
 git remote -v #查看当前远程库
 git remote add origin https://github.com/JustLikeY/scrum.git #与远程建立连接,origin是远程仓库在你本地的名称，可以根据自己的喜好更改
 git pull #抓取远程更新
+git fetch origin #将远程主机的更新，全部取回本地 
+git pull origin master --allow-unrelated-histories #拉
 ```
 
 # 后悔药（撤销、补交、删除、移动）
