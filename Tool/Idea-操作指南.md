@@ -1,3 +1,7 @@
+# 快捷键
+
+- `Shift+Enter`：在当前行后新开一行
+
 # 添加系统JDK
 
 Project Structure->Project SDK->new
