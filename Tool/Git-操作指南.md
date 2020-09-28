@@ -49,6 +49,18 @@ git fetch origin #将远程主机的更新，全部取回本地
 git pull origin master --allow-unrelated-histories #拉
 ```
 
+## 多个远程库
+
+```shell
+# 添加
+git remote add origin https://github.com/JustLikeY/scrum.git
+git remote add yf https://github.com/JustLikeY/scrum1.git
+# 推送到yf库的master分支
+git push yf master
+# 拉取yf库的master分支
+git pull yf master
+```
+
 # 后悔药（撤销、补交、删除、移动）
 
 ```shell
