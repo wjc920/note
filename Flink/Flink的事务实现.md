@@ -1,0 +1,1 @@
+FlinkKafkaProducer算子接收到Checkpoint，Kafka生产者会等所有正在处理消息都得到Broker的响应，才会再次向Kafka中写入数据。
