@@ -13,3 +13,14 @@ zip -q -r html.zip *
 # 删除zip中的a.c
 zip -dv html.zip a.c
 ```
+
+# 远程
+
+```
+# 远程连接 指定端口
+ssh -p 22 user@ip
+# 远程拷贝 指定端口
+scp -P 22 local_file user@host:/dir
+```
+
+

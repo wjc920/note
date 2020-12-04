@@ -19,3 +19,5 @@
 
 ![](pic/jvm-method-call.png)
 
+# JVM内存分配和回收策略
+

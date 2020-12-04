@@ -2,7 +2,6 @@
 
 ### 查看
 
-
 ```shell
 #查看当前用户名
 git config user.name
@@ -19,6 +18,8 @@ git config --global user.name "wjc"
 git config --global user.email "wjc920@foxmail.com"
 #设置中文编码
 git config --global core.quotepath false
+#提交时转换为LF，检出时不转换
+git config --global core.autocrlf input
 #执行下面语句生成密钥，并添加密钥到server
 ssh-keygen -t rsa -C "wjc920@foxmail.com" 
 #复制id_rsa.pub到git server
@@ -88,6 +89,7 @@ git branch dev    # 建立 dev 分支
 git branch        # 查看当前分支有哪些
 git checkout dev  #切换到dev分支
 git checkout -b  dev     #创建并切换至分支dev
+git checkout -b dev origin/dev  # 拉远程分支dev到本地并切换到dev分支
 git commit -am "change 3 in dev"  # "-am": add 所有改变 并直接 commit
 git merge dev         # 将 dev merge 到 当前分支 中
 git merge --no-ff -m "keep merge info" dev   #将devmerge到master中并且在$git log --oneline --graph中能看到合并的分支图案

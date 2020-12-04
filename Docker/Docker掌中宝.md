@@ -36,6 +36,8 @@ docker rmi wc1:latest
 docker rmi 6dbf8162bf50 -f
 # 删除所有临时文件，加-a的话可以在删除临时文件的同时删除所有无用镜像
 docker image prune
+# 删除所有的本地镜像，慎用！！！
+docker rmi $(docker images -q)
 ```
 - 根据tag删除，只会删除对应tag，只有当镜像只剩下一个tag时，删除tag才会删除竟像文件；
 - 根据ID删除镜像，直接会删除ID相同的所有tag和镜像文件
@@ -187,6 +189,23 @@ docker run --name vt --mount type=bind,source=/home/wjc/webapp,destination=/opt/
 docker run --name vt1 -v /home/wjc/webapp:/opt/webapp -itd centos:0426 bash
 ```
 在使用mount时，source对应的目录在主机上必须存在，使用v时会自动创建本地目录。相比较而言，mount的方法指定数据卷会更容易看懂，但信息冗余较多，两者并无本质区别。
+
+# IDEA Docker插件使用
+
+## Docker开启远程连接端口
+
+在`/lib/systemd/system/docker.service`文件中找到`ExecStart=/usr/bin/dockerd`开头的行，在尾部追加`-H tcp://0.0.0.0:2375`，再执行如下命令行，重启docker服务
+```shell script
+systemctl daemon-reload
+systemctl restart docker.service
+```
+经过以上操作就可以在IDEA中配置TCP方式连接Docker了。
+
+## Dokcer image
+
+配置方法如下图：
+![](pic/docker-idea-image.png)
+
 # TODO
 - 容器配置怎么更新？更新后有啥效果？
 
