@@ -30,3 +30,7 @@ groovyScript("def returnType = \"${_1}\"; def result = ' * @return ' + returnTyp
 date: 
 groovyScript("new Date().format('yyyy年MM月dd日 ahh:mm:ss')")
 ```
+
+# 设置文本自动换行
+
+Settings -> Editor -> General -> Soft-wrap files
