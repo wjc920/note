@@ -1,7 +1,17 @@
 # 常用命令
-| 命令 | 作用 |
-| --- | ---|
-| mvn help:effective-pom | 查看实际生效的pom文件 |
+
+## 查看实际生效的Pom文件
+
+```shell
+mvn help:effective-pom
+```
+
+## 将单个Jar包推送到远程
+
+```shell
+
+mvn deploy:deploy-file -DgroupId=org.apache.flink -DartifactId=flink-connector-hive-hdp_2.11 -Dversion=1.12.2 -Dpackaging=jar -Dfile=flink-connector-hive-hdp_2.11-1.12.2.jar -DrepositoryId=thirdparty -Durl=http://ip-of-nexus:8081/nexus/content/repositories/thirdparty
+```
 
 # Maven基本概念
 - Maven的唯一作用是解析pom文件，其余人均都由插件来完成。
@@ -195,8 +205,9 @@ mvn clean install -U # 强制更新RELEASE、LATEST和SNAPSHOT
 - 
 
 第一列：第一依赖   第一行：第二依赖
+
 |  | compile | test | provided | runtime |
-|:--:|:--:|:--:|:--:|:--:|
+|:---:|:---:|:---:|:---:|:--:|
 | **compile** | compile | - | - | runtime |
 | **test** | test | - | - | test |
 | **provided** | provided | - | provided | provided |
