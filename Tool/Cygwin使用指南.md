@@ -1,21 +1,21 @@
 # 初始环境配置
 
-**步骤1：** `~/.bashrc`
+
+**步骤1：** `/etc/bash.bashrc`
 
 ```shell
-source /etc/profile.d/env.sh
+TERM="cygwin"
 source /etc/profile.d/lang.sh
 alias ll='ls -l'
 alias ls='ls -F --color=auto --show-control-chars'
-PS1="\[\e[35;1m\][\u@\h \W]# \[\e[0m\]"
+PS1="\[\e]0;\w\a\]\[\e[35;1m\][\u@\h \W]# \[\e[0m\]"
+
+HOME="/cygdrive/c/Users/$USERNAME"
+HISTFILE="/cygdrive/d/Cache/.bash_history"
+HISTFILESIZE=1000
 ```
 
-**步骤2：** `/etc/profile.d/env.sh`
-
-```shell
-export TERM="cygwin"
-```
-
+- 
 
 # 常见问题
 

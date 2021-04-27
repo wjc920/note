@@ -158,7 +158,17 @@ wjc@wjc-PC:~/Desktop/note$ git status
 1. 问题原因：core.quotepath的作用是控制路径是否编码显示的选项。当路径中的字符大于0x80的时候，如果设置为true，转义显示；设置为false，不转义。
 2. 解决方法：执行 `git config --global core.quotepath false`
 
+### 在bash中使用git log会乱码
 
+在gitconfig中添加：
+
+```
+[i18n]
+ commitencoding = utf-8
+ logoutputencoding = utf-8
+```
+
+再设置环境变量：`LESSCHARSET=utf-8`
 
 
 
